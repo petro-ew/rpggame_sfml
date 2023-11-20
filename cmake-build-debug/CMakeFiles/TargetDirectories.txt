@@ -1,0 +1,3 @@
+/home/petroew/sources/rpggame/cmake-build-debug/CMakeFiles/rpggame.dir
+/home/petroew/sources/rpggame/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/petroew/sources/rpggame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
