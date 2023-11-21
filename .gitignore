@@ -1,0 +1,54 @@
+#Ignore personal workspace vars
+.idea
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+#Ignore Unix backups files
+*~
+
+#Exceptions
+/build
+/CMakeFiles
+*.sln
+*.vscode
+*.xcodeproj
+*.pyc
+*.udd
+*.dat
+*.target.xml
+/.kdev4
+/.vscode
+/cmake-*
+/cmake-build-debug
+cmake_install.cmake
+Makefile
+CMakeCache.txt
+/src/Makefile
+/src/CMakeFiles
+/src/cmake_install.cmake
+/SFML-2.6.1-WIN/bin
+/SFML-2.6.1-WIN/doc
+/SFML-2.6.1-WIN/examples
+/SFML-2.6.1-WIN/include
+/SFML-2.6.1-WIN/lib
+#/SFML-2.6.1-WIN/CmakeLists.txt
+/SFML-2.6.1-WIN/CMakeFiles
+/.idea/
+/.idea
+
+/SFML-2.6.1-WIN/readme.md
+/SFML-2.6.1-WIN/license.md
+
+
+#Ignore Intermediate folders
+/obj
+/Intermediate
+
+#Ignore any saved local files

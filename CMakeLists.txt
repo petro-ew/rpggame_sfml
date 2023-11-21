@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 # создаём новый проект
-project(rpggame)
+project(rpggame_sfml)
 #add_subdirectory (src)
 set("${PROJECT}_BINARY_DIR" bin)
 #set ("${PROJECT}_SOURCE_DIR" src:include)
@@ -19,20 +19,19 @@ set(ERR_NO_UNIX "Cannot build on non Unix systems")
 if (WITH_DEBUG_MODE)
     ADD_DEFINITIONS(-DMY_DEBUG_MODE=1)
 endif ()
-if (CMAKE_COMPILER_IS_GNUCXX)
-    set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system")
-    set(CMAKE_CXX_FLAGS "-O0 ${MY_CXX_FLAGS}")
-    # я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
-    #set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
-    #set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
-else ()
-    message(FATAL_ERROR ${ERR_NO_UNIX})
-endif ()
+#if (CMAKE_COMPILER_IS_GNUCXX)
+set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system")
+set(CMAKE_CXX_FLAGS "-O0 ${MY_CXX_FLAGS}")
+# я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
+#set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
+#set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+#else ()
+#endif ()
 
 find_package(SFML COMPONENTS graphics window system)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-add_executable(rpggame
+add_executable(rpggame_sfml
         Define.h
         Resources/Audio.h
         Resources/Font.h

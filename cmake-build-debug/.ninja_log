@@ -1,6 +1,0 @@
-# ninja log v5
-1	567	1700498844249773628	CMakeFiles/rpggame.dir/Base.cpp.o	20fe7bf12bd95fa6
-0	18	1700511609583026698	build.ninja	94b5430c64232119
-0	198	1700450441903288238	CMakeFiles/rpggame.dir/main.cpp.o	2b5e86900f0a2d1b
-199	232	1700450441936621570	rpggame	beecb9fe125644d3
-1	610	1700498844293106959	CMakeFiles/rpggame.dir/Game/Game.cpp.o	7cf4972b69af1d22

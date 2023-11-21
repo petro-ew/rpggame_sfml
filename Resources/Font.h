@@ -4,10 +4,14 @@
 #pragma once
 #include "../Define.h"
 
-struct Font{
+struct Font
+{
     sf::Font common;
-    Font() {
-        common.loadFromFile("Resources/Fonts/common.ttf");
+    Font()
+    {
+        common.loadFromFile("Resources/fonts/common.ttf");
     }
-    ~Font(){}
+    ~Font()
+    {
+    }
 };
