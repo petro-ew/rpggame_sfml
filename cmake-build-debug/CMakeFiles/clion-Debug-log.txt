@@ -1,4 +1,0 @@
-Cannot generate into /home/petroew/source/rpggame_sfml/cmake-build-debug
-It was created with incompatible generator 'Unix Makefiles'
-
-Please either delete it manually or select another generation directory
