@@ -3,15 +3,16 @@
 //
 #pragma once
 
-#include<iostream>
-#include<fstream>
-#include<memory>
-#include<cmath>
-#include<list>
-#include<vector>
-#include<algorithm>
-#include<thread>
-#include<functional>
+#include <iostream>
+#include <fstream>
+#include <memory>
+#include <cmath>
+#include <list>
+#include <vector>
+#include <algorithm>
+#include <thread>
+#include <functional>
+#include <stdlib.h>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.h>
@@ -24,27 +25,27 @@ constexpr auto RAD = 0.017453;
 class Base;
 typedef Base B;
 
+using std::cos;
 using std::cout;
 using std::endl;
 using std::to_string;
-using std::cos;
-//using std::cosf;
+// using std::cosf;
 using std::sin;
-//using std::sinf;
-//using std::atanf;
+// using std::sinf;
+// using std::atanf;
 using std::atan;
+using std::ifstream;
+using std::list;
 using std::make_shared;
 using std::make_unique;
-using std::list;
-using std::vector;
-using std::string;
-using std::unique_ptr;
+using std::ostream;
 using std::shared_ptr;
-using std::ifstream;
-using std::ofstream;
+using std::string;
 using std::thread;
+using std::unique_ptr;
+using std::vector;
 
-//сокращаем названия переменных и классов для удобства
+// сокращаем названия переменных и классов для удобства
 typedef unsigned int uint;
 typedef sf::Vector2i v2i;
 typedef sf::Vector2f v2f;
@@ -53,20 +54,22 @@ typedef sf::RectangleShape Shape;
 typedef sf::Texture IMG;
 typedef sf::Color Color;
 
-//Перегрузка оператора вывода для v2f
-std::ostream& operator << (std::ostream& out, const v2f& p)
+// Перегрузка оператора вывода для v2f
+inline ostream& operator<<(ostream& out, const v2f& p)
 {
     out << "X: " << p.x << " | Y: " << p.y;
     return out;
 }
-//Перегрузка оператора вывода для v2i
-std::ostream& operator << (std::ostream& out, const v2i& p)
+
+// Перегрузка оператора вывода для v2i
+inline ostream& operator<<(ostream& out, const v2i& p)
 {
     out << "X: " << p.x << " | Y: " << p.y;
     return out;
 }
-//Перегрузка оператора вывода для Shape
-std::ostream& operator << (std::ostream& out, const Shape& s)
+
+// Перегрузка оператора вывода для Shape
+inline ostream& operator<<(ostream& out, const Shape& s)
 {
     out << "Position: " << s.getPosition() << endl;
     out << "Size: " << s.getSize() << endl;

@@ -46,7 +46,7 @@ CMakeCache.txt
 /SFML-2.6.1-WIN/readme.md
 /SFML-2.6.1-WIN/license.md
 
-
+/bin/
 #Ignore Intermediate folders
 /obj
 /Intermediate

@@ -3,7 +3,7 @@ message("starting cmake compiling apples")
 #set(CMAKE_CXX_STANDARD C17)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20 -fmodules-ts")
 # создаём новый проект
 project(rpggame_sfml)
 #add_subdirectory (src)
@@ -15,12 +15,12 @@ set(CMAKE_INCLUDE_PATH ${${PROJECT}_SOURCE_DIR})
 #set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/${${PROJECT}_BINARY_DIR})
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_BUILD_TYPE Debug)
-set(ERR_NO_UNIX "Cannot build on non Unix systems")
-if (WITH_DEBUG_MODE)
-    ADD_DEFINITIONS(-DMY_DEBUG_MODE=1)
-endif ()
+#set(ERR_NO_UNIX "Cannot build on non Unix systems")
+#if (WITH_DEBUG_MODE)
+#    ADD_DEFINITIONS(-DMY_DEBUG_MODE=1)
+#endif ()
 #if (CMAKE_COMPILER_IS_GNUCXX)
-set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -L/usr/local/lib -L/usr/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system")
+set(MY_CXX_FLAGS "-Wall -std=c++20 -fmessage-length=0 -v -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system")
 set(CMAKE_CXX_FLAGS "-O0 ${MY_CXX_FLAGS}")
 # я отключил настройку разных флагов для релиза и отладки. Пока что не нужно.
 #set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
@@ -32,29 +32,31 @@ find_package(SFML COMPONENTS graphics window system)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(rpggame_sfml
-        Define.h
-        Resources/Audio.h
-        Resources/Font.h
-        Resources/Texture.h
-        Game/Game.h
-        Game/Game.cpp
-        Base.cpp
-        Base.h)
+        src/Define.h
+        src/Audio.h
+        src/Font.h
+        src/Texture.h
+        src/Game.h
+        src/Game.cpp
+        src/Base.cpp
+        src/Base.h
+        src/Constants.h)
 
 
 find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)
+target_link_libraries(rpggame_sfml sfml-system sfml-graphics sfml-audio sfml-network)
 
 # в текущем проекте ничего не нужно дополнительно компилировать
 #set (LIBRARIES)
 # следующий код нужен для компиляции и подключения сторонних библиотек 
-#    foreach (LIBRARY ${LIBRARIES})
-#        find_library("${LIBRARY}_FOUND" ${LIBRARY})
-#        message(STATUS "Check the ${LIBRARY} is installed: " ${${LIBRARY}_FOUND})
-#        if ( "${${LIBRARY}_FOUND}" STREQUAL "${LIBRARY}_FOUND-NOTFOUND" )
-#            message(STATUS "Adding library sources")
-#            add_subdirectory (../${LIBRARY} lib/${LIBRARY})
-#        endif ()
-#    endforeach ()
+foreach (LIBRARY ${LIBRARIES})
+    find_library("${LIBRARY}_FOUND" ${LIBRARY})
+    message(STATUS "Check the ${LIBRARY} is installed: " ${${LIBRARY}_FOUND})
+    if ("${${LIBRARY}_FOUND}" STREQUAL "${LIBRARY}_FOUND-NOTFOUND")
+        message(STATUS "Adding library sources")
+        add_subdirectory(../${LIBRARY} lib/${LIBRARY})
+    endif ()
+endforeach ()
 
 # никаких дополнительных целей нет
 #set (TARGETS "")
@@ -72,8 +74,6 @@ find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)
 #add_executable(CMakeSFMLProject src/main.cpp)
 #add_executable(${PROJECT_NAME} main.cpp Apple.cpp Apple.h config.h Constants.h Game.cpp Game.h Math.h Math.cpp Player.cpp Player.h Rock.cpp Rock.h)
 #target_link_libraries(CMakeSFMLProject PRIVATE sfml-graphics)
-
-#target_link_libraries (${PROJECT_NAME} PUBLIC sfml-system sfml-graphics sfml-audio sfml-network)
 #target_link_libraries(${PROJECT_NAME} OpenGL::OpenGL GLEW::GLEW glfw sfml-graphics sfml-window sfml-system)
 #target_compile_features(CMakeSFMLProject PRIVATE cxx_std_20)
 

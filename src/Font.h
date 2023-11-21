@@ -2,7 +2,7 @@
 // Created by petroew on 20.11.23.
 //
 #pragma once
-#include "../Define.h"
+#include "Define.h"
 
 struct Font
 {
