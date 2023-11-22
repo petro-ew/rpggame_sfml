@@ -32,15 +32,20 @@ find_package(SFML COMPONENTS graphics window system)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(rpggame_sfml
-        src/Define.h
-        src/Audio.h
-        src/Font.h
-        src/Texture.h
-        src/Game.h
-        src/Game.cpp
-        src/Base.cpp
-        src/Base.h
-        src/Constants.h)
+        #        src/define.h
+        #        src/audio.h
+        #        src/font.h
+        #        src/texture.h
+        src/game.h
+        src/game.cpp
+        #        src/base.cpp
+        #        src/base.h
+        src/constants.h
+        #        src/global_data_itf.h
+        #        src/global_data.h
+        src/main.cpp
+        #       src/game_object.h
+)
 
 
 find_package(SFML 2.6 COMPONENTS graphics audio network REQUIRED)

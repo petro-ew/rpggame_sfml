@@ -2,8 +2,11 @@
 // Created by petroew on 20.11.23.
 //
 
-#include "Game.h"
+// #include "Game.h"
 
+#include "game.h"
+
+/*
 Game::Game()
 {
 
@@ -131,3 +134,4 @@ int main()
     game.Play();
     return 0;
 }
+ */

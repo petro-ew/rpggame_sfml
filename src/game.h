@@ -2,6 +2,13 @@
 // Created by petroew on 20.11.23.
 //
 #pragma once
+// Game.h
+
+class Game
+{
+};
+
+/*
 #include "Base.h"
 enum class GameState : uint
 {
@@ -32,3 +39,4 @@ private:
     void ActionUI();
     void DrawUI();
 };
+*/
